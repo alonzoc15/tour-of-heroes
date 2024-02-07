@@ -1,0 +1,21 @@
+<h2>My Sidekicks</h2>
+
+<div>
+    <label for="new-sidekick">Sidekick name: </label>
+    <input id="new-sidekick" #sidekickName />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(sidekickName.value); sidekickName.value=''">
+        Add sidekick
+    </button>
+</div>
+
+<ul class="sidekicks">
+    <li *ngFor="let sidekick of sidekicks">
+        <a routerLink="/sidekickDetail/{{sidekick.id}}">
+            <span class="badge">{{sidekick.id}}</span> {{sidekick.name}}
+        </a>
+        <button type="button" class="delete" title="delete sidekick"
+            (click)="delete(sidekick)">x</button>
+    </li>
+</ul>
