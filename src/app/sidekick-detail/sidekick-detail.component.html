@@ -5,6 +5,9 @@
         <label for="sidekick-name">Sidekick name: </label>
         <input id="sidekick-name" [(ngModel)]="sidekick.name" placeholder="name">
     </div>
+    <div *ngIf="hero">
+        <h3><a href="detail/{{hero.id}}">Hero: {{hero.name | uppercase}}</a></h3>
+    </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type="button" (click)="save()">save</button>
 </div>
